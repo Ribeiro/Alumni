@@ -1,0 +1,36 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item
+        android:id="@+id/newStudent"
+        android:showAsAction="always"
+        android:title="New"/>
+    
+    <item
+        android:id="@+id/map"
+        android:showAsAction="always"
+        android:title="Map"/>
+    
+    <item
+        android:id="@+id/options"
+        android:showAsAction="always"
+        android:title="Options">
+        <menu>
+            <item
+                android:id="@+id/receiveExams"
+                android:showAsAction="always"
+                android:title="Download Exams"/>
+            
+            <item
+                android:id="@+id/prefs"
+                android:showAsAction="always"
+                android:title="Preferences"/>
+            
+           <item
+                android:id="@+id/sendAlumni"
+                android:showAsAction="always"
+                android:title="Synchronize"/>
+            
+        </menu>
+    </item>
+
+</menu>
