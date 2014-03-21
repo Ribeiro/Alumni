@@ -46,6 +46,7 @@ public class AlumniListing extends Activity {
 
 	private void listStudents() {
 		studentsListing = dao.getStudents();
+		dao.close();
 		ArrayAdapter<Student> studentAdapter = buildAdapterFor(studentsListing);
 		listView.setAdapter(studentAdapter);
 		addOnItemClickListenerTo(listView);
