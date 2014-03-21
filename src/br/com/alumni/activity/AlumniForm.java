@@ -1,7 +1,5 @@
 package br.com.alumni.activity;
 
-import java.io.Serializable;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -16,6 +14,8 @@ import br.com.alumni.model.Student;
 public class AlumniForm extends Activity {
 	
 	private AlumniFormHelper alumniFormHelper;
+	
+	private Student studentToUpdate;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -23,7 +23,7 @@ public class AlumniForm extends Activity {
 		setContentView(R.layout.alumni_form);
 		
 		Intent intent = getIntent();
-		final Student studentToUpdate = (Student) intent.getSerializableExtra("selectedStudent");
+		studentToUpdate = (Student) intent.getSerializableExtra("selectedStudent");
 		Button button = (Button) findViewById(R.id.btnSaveAlumni);
 		alumniFormHelper = new AlumniFormHelper(this);
 		
@@ -32,7 +32,11 @@ public class AlumniForm extends Activity {
 			alumniFormHelper.addToForm(studentToUpdate);
 		}
 		
+		addOnClickListenerTo(button);
 		
+	}
+	
+	private void addOnClickListenerTo(Button button){
 		button.setOnClickListener(new OnClickListener() {
 			
 			@Override
@@ -56,37 +60,6 @@ public class AlumniForm extends Activity {
 			
 		});
 		
-		
-		//addOnClickListenerTo(button, studentToUpdate);
-		
 	}
-	
-//	private void addOnClickListenerTo(Button button, Student studentToUpdate){
-//		button.setOnClickListener(new OnClickListener() {
-//			
-//			@Override
-//			public void onClick(View v) {
-//				Student student = alumniFormHelper.getStudent();
-//				StudentDAO dao = new StudentDAO(AlumniForm.this);
-//				
-//				if (studentToUpdate == null) {
-//					dao.save(student);
-//					
-//				} else {
-//
-//				}
-//				
-//				
-//				
-//				dao.close();
-//				
-//				
-//				finish();
-//				
-//			}
-//			
-//		});
-//		
-//	}
 	
 }
