@@ -4,6 +4,7 @@ import java.util.List;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.ContextMenu;
 import android.view.ContextMenu.ContextMenuInfo;
@@ -17,6 +18,7 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 import br.com.alumni.R;
 import br.com.alumni.infraestructure.StudentDAO;
 import br.com.alumni.model.Student;
@@ -122,14 +124,59 @@ public class AlumniListing extends Activity {
 	
 	@Override
 	public void onCreateContextMenu(ContextMenu menu, View v, ContextMenuInfo menuInfo) {
-		menu.add("Call");
-		menu.add("Send SMS");
+		MenuItem callMenuItem = menu.add("Call");
+		addCallClickListenerTo(callMenuItem);
+		
+		MenuItem sendSMSMenuItem = menu.add("Send SMS");
+		addSendSMSClickListenerTo(sendSMSMenuItem);
+		
 		menu.add("Browse site");
-		MenuItem delete = menu.add("Delete");
+		
+		MenuItem deleteMenuItem = menu.add("Delete");
+		addDeleteClickListenerTo(deleteMenuItem);
+		
+		menu.add("See on Map");
+		
+		MenuItem sendEmailMenuItem = menu.add("Send Email");
+		addSendEmailClickListenerTo(sendEmailMenuItem);
+		
+		super.onCreateContextMenu(menu, v, menuInfo);
+		
+	}
+
+	private void addSendSMSClickListenerTo(MenuItem sendSMSMenuItem) {
+		sendSMSMenuItem.setOnMenuItemClickListener(new OnMenuItemClickListener() {
+			
+			@Override
+			public boolean onMenuItemClick(final MenuItem item) {
+				final Intent intent = new Intent(AlumniListing.this, AlumniSendSMS.class);
+				intent.putExtra("smsForStudent", student);
+				startActivityForResult(intent, 1);
+				return false;
+			}
+			
+		});
+	}
+
+	private void addSendEmailClickListenerTo(MenuItem sendEmailMenuItem) {
+		sendEmailMenuItem.setOnMenuItemClickListener(new OnMenuItemClickListener() {
+			
+			@Override
+			public boolean onMenuItemClick(final MenuItem item) {
+				final Intent intent = new Intent(AlumniListing.this, AlumniSendEmail.class);
+				intent.putExtra("emailForStudent", student);
+				startActivityForResult(intent, 1);
+				return false;
+			}
+			
+		});
+	}
+
+	private void addDeleteClickListenerTo(MenuItem delete) {
 		delete.setOnMenuItemClickListener(new OnMenuItemClickListener() {
 			
 			@Override
-			public boolean onMenuItemClick(MenuItem item) {
+			public boolean onMenuItemClick(final MenuItem item) {
 				dao.delete(student);
 				dao.close();
 				listStudents();
@@ -137,13 +184,38 @@ public class AlumniListing extends Activity {
 			}
 			
 		});
+	}
+
+	private void addCallClickListenerTo(MenuItem call) {
+		call.setOnMenuItemClickListener(new OnMenuItemClickListener() {
+			
+			@Override
+			public boolean onMenuItemClick(final MenuItem item) {
+				final Intent callIntent = new Intent(Intent.ACTION_CALL);
+				callIntent.setData(Uri.parse("tel:" + student.getPhone()));
+				startActivity(callIntent);
+				return false;
+			}
+			
+		});
+	}
+	
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		if (requestCode == 1) {
+
+	        if (resultCode == RESULT_OK) {
+	            String result = data.getStringExtra("result");
+	            Toast.makeText(getApplicationContext(), result, Toast.LENGTH_LONG).show();
+	        }
+	        
+	        if (resultCode == RESULT_CANCELED) {
+	        	String result = data.getStringExtra("result");
+	            Toast.makeText(getApplicationContext(), result, Toast.LENGTH_LONG).show();
+	        }
+	    }
 		
-		
-		menu.add("See on Map");
-		menu.add("Send Email");
-		
-		super.onCreateContextMenu(menu, v, menuInfo);
-		
+		super.onActivityResult(requestCode, resultCode, data);
 	}
 	
 }

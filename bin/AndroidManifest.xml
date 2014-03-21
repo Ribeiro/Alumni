@@ -8,6 +8,13 @@
         android:minSdkVersion="8"
         android:targetSdkVersion="19" />
 
+    <uses-permission android:name="android.permission.CALL_PHONE" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.SEND_SMS" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.INTERNET" >
+    </uses-permission>
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
@@ -25,6 +32,14 @@
         <activity
             android:name="br.com.alumni.activity.AlumniForm"
             android:label="@string/title_alumni_form" >
+        </activity>
+        <activity
+            android:name="br.com.alumni.activity.AlumniSendEmail"
+            android:label="@string/title_alumni_send_email" >
+        </activity>
+        <activity
+            android:name="br.com.alumni.activity.AlumniSendSMS"
+            android:label="@string/title_alumni_send_sms" >
         </activity>
     </application>
 

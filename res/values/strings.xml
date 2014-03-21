@@ -4,6 +4,8 @@
     <string name="app_name">Alumni</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
-    <string name="title_alumni_form">AlumniForm</string>
+    <string name="title_alumni_form">Alumni - Form</string>
+    <string name="title_alumni_send_email">Alumni - SendEmail</string>
+    <string name="title_alumni_send_sms">Alumni - SendSMS</string>
 
 </resources>
