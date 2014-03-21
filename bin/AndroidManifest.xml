@@ -27,18 +27,27 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        
         <activity
             android:name="br.com.alumni.activity.AlumniForm"
             android:label="@string/title_alumni_form" >
         </activity>
+        
         <activity
             android:name="br.com.alumni.activity.AlumniSendEmail"
             android:label="@string/title_alumni_send_email" >
         </activity>
+        
         <activity
             android:name="br.com.alumni.activity.AlumniSendSMS"
             android:label="@string/title_alumni_send_sms" >
         </activity>
+        
+        <activity
+            android:name="br.com.alumni.activity.AlumniWebView"
+            android:label="@string/title_alumni_webview" >
+        </activity>
+        
     </application>
 
 </manifest>

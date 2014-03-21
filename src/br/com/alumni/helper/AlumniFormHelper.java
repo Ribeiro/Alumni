@@ -18,6 +18,7 @@ public class AlumniFormHelper {
 	private EditText studentPhone;
 	private EditText studentEmail;
 	private RatingBar studentRanking;
+	private EditText studentSite;
 
 	public AlumniFormHelper(AlumniForm alumniForm){
 		studentName = (EditText) alumniForm.findViewById(R.id.name);
@@ -26,13 +27,15 @@ public class AlumniFormHelper {
 		studentPhone = (EditText) alumniForm.findViewById(R.id.phone);
 		studentEmail = (EditText) alumniForm.findViewById(R.id.email);
 		studentRanking = (RatingBar) alumniForm.findViewById(R.id.ranking);
+		studentSite = (EditText) alumniForm.findViewById(R.id.website);
 		
 	}
 	
 	
 	public Student getStudent() {
 		
-		return StudentBuilder.aStudent().withName(getStringFrom(studentName))
+		return StudentBuilder.aStudent().withSite(getStringFrom(studentSite))
+				 						.withName(getStringFrom(studentName))
 										.withAge(getIntegerFrom(studentAge))
 										.withAddress(getStringFrom(studentAddress))
 										.withPhone(getStringFrom(studentPhone))
@@ -49,6 +52,7 @@ public class AlumniFormHelper {
 		studentPhone.setText(studentToUpdate.getPhone());
 		studentEmail.setText(studentToUpdate.getEmail());
 		studentRanking.setRating(studentToUpdate.getRanking().floatValue());
+		studentSite.setText(studentToUpdate.getSite());
 		
 	}
 	

@@ -58,5 +58,10 @@ public final class StudentBuilder {
 		this.student.setPhoto(photo);
 		return this;
 	}
+	
+	public StudentBuilder withSite(final String url) {
+		this.student.setSite(url);
+		return this;
+	}
 
 }

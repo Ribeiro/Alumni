@@ -24,44 +24,48 @@ public final class R {
         public static final int ic_launcher=0x7f020000;
     }
     public static final class id {
-        public static final int action_settings=0x7f080019;
+        public static final int action_settings=0x7f08001c;
         public static final int address=0x7f080005;
         public static final int age=0x7f080003;
-        public static final int alumniListing=0x7f08000d;
-        public static final int btnSaveAlumni=0x7f08000c;
-        public static final int buttonSend=0x7f080015;
-        public static final int editTextMessage=0x7f080014;
-        public static final int editTextPhoneNo=0x7f080016;
-        public static final int editTextSMS=0x7f080018;
-        public static final int editTextSubject=0x7f080012;
-        public static final int editTextTo=0x7f080010;
+        public static final int alumniListing=0x7f08000f;
+        public static final int alumniWebView=0x7f08001b;
+        public static final int btnSaveAlumni=0x7f08000e;
+        public static final int buttonSend=0x7f080017;
+        public static final int editTextMessage=0x7f080016;
+        public static final int editTextPhoneNo=0x7f080018;
+        public static final int editTextSMS=0x7f08001a;
+        public static final int editTextSubject=0x7f080014;
+        public static final int editTextTo=0x7f080012;
         public static final int email=0x7f080009;
-        public static final int linearLayout1=0x7f08000e;
-        public static final int map=0x7f08001b;
+        public static final int linearLayout1=0x7f080010;
+        public static final int map=0x7f08001e;
         public static final int name=0x7f080001;
-        public static final int newStudent=0x7f08001a;
-        public static final int options=0x7f08001c;
+        public static final int newStudent=0x7f08001d;
+        public static final int options=0x7f08001f;
         public static final int phone=0x7f080007;
-        public static final int prefs=0x7f08001e;
+        public static final int prefs=0x7f080021;
         public static final int ranking=0x7f08000b;
-        public static final int receiveExams=0x7f08001d;
-        public static final int sendAlumni=0x7f08001f;
+        public static final int receiveExams=0x7f080020;
+        public static final int sendAlumni=0x7f080022;
         public static final int textView1=0x7f080000;
         public static final int textView2=0x7f080002;
         public static final int textView3=0x7f080004;
         public static final int textView4=0x7f080006;
         public static final int textView5=0x7f080008;
         public static final int textView6=0x7f08000a;
-        public static final int textViewMessage=0x7f080013;
-        public static final int textViewPhoneNo=0x7f08000f;
-        public static final int textViewSMS=0x7f080017;
-        public static final int textViewSubject=0x7f080011;
+        public static final int textView7=0x7f08000c;
+        public static final int textViewMessage=0x7f080015;
+        public static final int textViewPhoneNo=0x7f080011;
+        public static final int textViewSMS=0x7f080019;
+        public static final int textViewSubject=0x7f080013;
+        public static final int website=0x7f08000d;
     }
     public static final class layout {
         public static final int alumni_form=0x7f030000;
         public static final int alumni_listing=0x7f030001;
         public static final int alumni_send_email=0x7f030002;
         public static final int alumni_send_sms=0x7f030003;
+        public static final int alumni_webview=0x7f030004;
     }
     public static final class menu {
         public static final int alumni_form=0x7f070000;
@@ -73,10 +77,10 @@ public final class R {
         public static final int action_settings=0x7f050001;
         public static final int app_name=0x7f050000;
         public static final int hello_world=0x7f050002;
-        public static final int title_activity_alumni_google_maps=0x7f050006;
         public static final int title_alumni_form=0x7f050003;
         public static final int title_alumni_send_email=0x7f050004;
         public static final int title_alumni_send_sms=0x7f050005;
+        public static final int title_alumni_webview=0x7f050006;
     }
     public static final class style {
         /** 

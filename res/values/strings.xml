@@ -7,6 +7,6 @@
     <string name="title_alumni_form">Alumni - Form</string>
     <string name="title_alumni_send_email">Alumni - SendEmail</string>
     <string name="title_alumni_send_sms">Alumni - SendSMS</string>
-    <string name="title_activity_alumni_google_maps">AlumniGoogleMaps</string>
+    <string name="title_alumni_webview">Alumni - Student Site</string>
 
 </resources>

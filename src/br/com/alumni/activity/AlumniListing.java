@@ -131,7 +131,8 @@ public class AlumniListing extends Activity {
 		MenuItem sendSMSMenuItem = menu.add("Send SMS");
 		addSendSMSClickListenerTo(sendSMSMenuItem);
 		
-		menu.add("Browse site");
+		MenuItem browseSiteMenuItem = menu.add("Browse site");
+		addBrowseSiteClickListenerTo(browseSiteMenuItem);
 		
 		MenuItem deleteMenuItem = menu.add("Delete");
 		addDeleteClickListenerTo(deleteMenuItem);
@@ -143,6 +144,20 @@ public class AlumniListing extends Activity {
 		
 		super.onCreateContextMenu(menu, v, menuInfo);
 		
+	}
+
+	private void addBrowseSiteClickListenerTo(MenuItem browseSiteMenuItem) {
+		browseSiteMenuItem.setOnMenuItemClickListener(new OnMenuItemClickListener() {
+			
+			@Override
+			public boolean onMenuItemClick(final MenuItem item) {
+				final Intent intent = new Intent(AlumniListing.this, AlumniWebView.class);
+				intent.putExtra("studentSite", student);
+				startActivity(intent);
+				return false;
+			}
+			
+		});
 	}
 
 	private void addSendSMSClickListenerTo(MenuItem sendSMSMenuItem) {

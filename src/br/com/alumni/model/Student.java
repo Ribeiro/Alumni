@@ -16,10 +16,11 @@ public class Student implements Serializable, Entity{
 	private Double ranking;
 	private String photo;
 	private static final String NO_PHOTO = "No Photo";
+	private String site;
 	private static final Long ZERO = 0L;
 
 	public Student(Integer id, String name, Integer age, String address,
-			String phone, String email, Double ranking, String photo) {
+			String phone, String email, Double ranking, String photo, String site) {
 		super();
 		this._id = id == null ? ZERO : id;
 		this.name = name;
@@ -29,6 +30,7 @@ public class Student implements Serializable, Entity{
 		this.email = email;
 		this.ranking = ranking;
 		this.photo = photo == null ? NO_PHOTO : photo;
+		this.site = site;
 	}
 
 	public Student() {
@@ -108,6 +110,14 @@ public class Student implements Serializable, Entity{
 	public void setRanking(Double ranking) {
 		this.ranking = ranking;
 		
+	}
+	
+	public void setSite(String url) {
+		this.site = url;
+	}
+	
+	public String getSite() {
+		return site;
 	}
 
 }
